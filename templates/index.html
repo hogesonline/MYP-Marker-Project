@@ -1,0 +1,198 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    MYP Helper
+{% endblock %}
+
+{% block main %}
+        <h1>
+            Get your MYP results pages here
+        </h1>
+        <p>
+            This simple MYP results maker works by converting your csv of student results into an MYP rubric along with coments and highlighting. Upload your CSV and let the software do the rest.
+        </p>
+        <button type="button" class="collapsible">CSV Layout requirements</button>
+        <div class="content">
+            <p>These are the columns you need in the csv with explanation and example. You can download a template <a href="/static/template.csv">here</a>.</p>
+            <table>
+                <!--<tr>
+                    <th>Student Name</th>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                    <th>D</th>
+                    <th>CommentA</th>
+                    <th>CommentB</th>
+                    <th>CommentC</th>
+                    <th>CommentD</th>
+                </tr>
+                <tr>
+                    <td>First Name and Second Name</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>Things you did well, things you need to work on, next steps</td>
+                    <td>Things you did well, things you need to work on, next steps</td>
+                    <td>Things you did well, things you need to work on, next steps</td>
+                    <td>Things you did well, things you need to work on, next steps</td>
+                </tr>-->
+                <thead>
+                <tr>
+                    <th>Column</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>Name</th>
+                    <th>Student First and Surname, make sure you spell check</th>
+                    <th>James Small</th>
+                </tr>
+                  <tr>
+                    <td>Ai</td>
+                    <td>The score out of 4 that correlates to the level the study achieved for the first strand in Criterion A</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>Aii</td>
+                    <td>The score out of 4 that correlates to the level the study achieved for the second strand in Criterion A</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>Aiii</td>
+                    <td>The score out of 4 that correlates to the level the study achieved for the third strand in Criterion A</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>Aiv</td>
+                    <td>The score out of 4 that correlates to the level the study achieved for the fourth strand in Criterion A</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>A</td>
+                    <td>Overall score for Criterion A</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>Bi</td>
+                    <td>The score out of 4 that correlates to the level the study achieved for the first strand in Criterion B</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>Bii</td>
+                    <td>The score out of 4 that correlates to the level the study achieved for the second strand in Criterion B</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>Biii</td>
+                    <td>The score out of 4 that correlates to the level the study achieved for the three strand in Criterion B</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>Biv</td>
+                    <td>The score out of 4 that correlates to the level the study achieved for the fourth strand in Criterion B</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>B</td>
+                    <td>Overall score for Criterion B</td>
+                    <td>6</td>
+                  </tr>
+                  <tr>
+                    <td>Ci</td>
+                    <td>The score out of 4 that correlates to the level the study achieved for the first strand in Criterion C</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>Cii</td>
+                    <td>The score out of 4 that correlates to the level the study achieved for the second strand in Criterion C</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>Ciii</td>
+                    <td>The score out of 4 that correlates to the level the study achieved for the third strand in Criterion C</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>Civ</td>
+                    <td>The score out of 4 that correlates to the level the study achieved for the fourth strand in Criterion C</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>C</td>
+                    <td>Overall score for Criterion C</td>
+                    <td>8</td>
+                  </tr>
+                  <tr>
+                    <td>Di</td>
+                    <td>The score out of 4 that correlates to the level the study achieved for the first strand in Criterion D</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>Dii</td>
+                    <td>The score out of 4 that correlates to the level the study achieved for the second strand in Criterion D</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>Diii</td>
+                    <td>The score out of 4 that correlates to the level the study achieved for the third strand in Criterion D</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>Div</td>
+                    <td>The score out of 4 that correlates to the level the study achieved for the fourth strand in Criterion D</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>D</td>
+                    <td>Overall score for Criterion D</td>
+                    <td>5</td>
+                  </tr>
+                  <tr>
+                    <td>Comment A</td>
+                    <td>Your personal comment</td>
+                    <td>Things you did well, things you need to work on, next steps for Criterion A</td>
+                  </tr>
+                  <tr>
+                    <td>Comment B</td>
+                    <td>Your personal comment</td>
+                    <td>Things you did well, things you need to work on, next steps for Criterion B</td>
+                  </tr>
+                  <tr>
+                    <td>Comment C</td>
+                    <td>Your personal comment</td>
+                    <td>Things you did well, things you need to work on, next steps for Criterion C</td>
+                  </tr>
+                  <tr>
+                    <td>Comment D</td>
+                    <td>Your personal comment</td>
+                    <td>Things you did well, things you need to work on, next steps for Criterion D</td>
+                  </tr>
+                  </tbody>
+            </table>
+        </div>
+        <form action="/marks" method="post" enctype=multipart/form-data>
+            <h2>
+                Upload your marks...
+            </h2>
+            <p>
+              <!-- Should put here a drop down defaultiung to all criteria that allows for A and B or C and D-->
+            <label for="year">Choose the MYP Year</label>
+            <select name="year" id="year">
+                <option value="Year3">Year 3</option>
+                <option value="Year5">Year 5</option>
+            </select>
+            </p>
+            <p>
+            <input type="file" id="myFile" name="file">
+            </p>
+            <p>
+            <input type="submit" value=Upload>
+            </p>
+        </form>
+    </body>
+</html>
+
+{%endblock%}

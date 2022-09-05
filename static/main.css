@@ -1,0 +1,124 @@
+/* cyrillic-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PT Sans'), local('PTSans-Regular'), url(https://fonts.gstatic.com/s/ptsans/v11/jizaRExUiTo99u79D0-ExdGM.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PT Sans'), local('PTSans-Regular'), url(https://fonts.gstatic.com/s/ptsans/v11/jizaRExUiTo99u79D0aExdGM.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PT Sans'), local('PTSans-Regular'), url(https://fonts.gstatic.com/s/ptsans/v11/jizaRExUiTo99u79D0yExdGM.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('PT Sans'), local('PTSans-Regular'), url(https://fonts.gstatic.com/s/ptsans/v11/jizaRExUiTo99u79D0KExQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@media print {
+  table {page-break-after: always;}
+}
+
+body {
+    font-family: 'PTSans-Regular', sans-serif;
+    font-size: 14px
+
+}
+
+h1 {
+    font-size: 30px;
+    font-stretch: ultra-condensed;
+    color: #A4A4A4
+}
+h2{
+    font-size: 16px;
+    color: #A4A4A4;
+}
+h3{
+    font-size: 16px;
+    color: #333333;
+    font-style: italic;
+}
+
+article {
+    width:700px;
+    margin: auto;
+}
+
+ol {
+    padding-inline-start: 20px;
+    list-style-type: lower-roman;
+    list-style-position: outside;
+}
+
+
+li{
+    margin:5px 0px;
+    padding: 5px;
+    vertical-align: text-top;
+}
+li span{
+    margin-left:20px;
+
+    display: inline-block;
+    vertical-align: text-top;
+}
+
+table, th, td {
+  border: 1px solid #999999;
+  border-collapse: collapse;
+}
+
+.num {
+    text-align: center;
+    width: 140px;
+}
+
+td {
+    padding: 10px;
+}
+th {
+    background-color: #dddddd;
+    color:#979797;
+    padding: 15px;
+    text-align: left;
+}
+.yellow {
+    background-color: #ffe44d;
+}
+
+.result-a, .result-b, .result-c, .result-d {
+    width:140px;
+    padding:10px;
+    font-weight: bold;
+    font-style: italic; 
+}
+.comment-a, .comment-b, .comment-c, .comment-d {
+    width: 510px;
+    padding: 10px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.result-a, .comment-a, .result-b, .comment-b, .result-c, .comment-c, .result-d, .comment-d {
+    vertical-align: top;
+    display:inline-block;
+
+}
+

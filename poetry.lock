@@ -98,6 +98,14 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "et-xmlfile"
+version = "1.1.0"
+description = "An implementation of lxml.xmlfile for the standard library"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "flask"
 version = "2.2.2"
 description = "A simple framework for building complex web applications."
@@ -123,6 +131,14 @@ description = "A list-like structure which implements collections.abc.MutableSeq
 category = "main"
 optional = false
 python-versions = ">=3.7"
+
+[[package]]
+name = "helpers"
+version = "0.2.0"
+description = "Improved developer experience, accumulated."
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "idna"
@@ -186,6 +202,14 @@ MarkupSafe = ">=2.0"
 i18n = ["Babel (>=2.7)"]
 
 [[package]]
+name = "lml"
+version = "0.1.0"
+description = "Load me later. A lazy plugin management system."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "markupsafe"
 version = "2.1.1"
 description = "Safely add untrusted strings to HTML/XML markup."
@@ -200,6 +224,17 @@ description = "multidict implementation"
 category = "main"
 optional = false
 python-versions = ">=3.7"
+
+[[package]]
+name = "openpyxl"
+version = "3.0.10"
+description = "A Python library to read/write Excel 2010 xlsx/xlsm files"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+et-xmlfile = "*"
 
 [[package]]
 name = "packaging"
@@ -233,8 +268,36 @@ optional = false
 python-versions = ">=3.6"
 
 [package.extras]
-dev = ["pre-commit", "tox"]
-testing = ["pytest", "pytest-benchmark"]
+testing = ["pytest-benchmark", "pytest"]
+dev = ["tox", "pre-commit"]
+
+[[package]]
+name = "pyexcel-io"
+version = "0.6.6"
+description = "A python library to read and write structured data in csv, zipped csvformat and to/from databases"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+lml = ">=0.0.4"
+
+[package.extras]
+ods = ["pyexcel-ods3 (>=0.6.0)"]
+xls = ["pyexcel-xls (>=0.6.0)"]
+xlsx = ["pyexcel-xlsx (>=0.6.0)"]
+
+[[package]]
+name = "pyexcel-xlsx"
+version = "0.6.0"
+description = "A wrapper library to read, manipulate and write data in xlsx and xlsmformat"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+openpyxl = ">=2.6.1"
+pyexcel-io = ">=0.6.2"
 
 [[package]]
 name = "pyflakes"
@@ -267,7 +330,7 @@ python-versions = "*"
 ujson = ">=3.0.0"
 
 [package.extras]
-test = ["pylint", "pycodestyle", "pyflakes", "pytest", "pytest-cov", "coverage"]
+test = ["coverage", "pytest-cov", "pytest", "pyflakes", "pycodestyle", "pylint"]
 
 [[package]]
 name = "python-lsp-server"
@@ -288,18 +351,18 @@ whatthepatch = {version = ">=1.0.2,<2.0.0", optional = true, markers = "extra ==
 yapf = {version = "*", optional = true, markers = "extra == \"yapf\""}
 
 [package.extras]
-all = ["autopep8 (>=1.6.0,<1.7.0)", "flake8 (>=4.0.0,<4.1.0)", "mccabe (>=0.6.0,<0.7.0)", "pycodestyle (>=2.8.0,<2.9.0)", "pydocstyle (>=2.0.0)", "pyflakes (>=2.4.0,<2.5.0)", "pylint (>=2.5.0)", "rope (>=0.10.5)", "yapf", "whatthepatch"]
-autopep8 = ["autopep8 (>=1.6.0,<1.7.0)"]
-flake8 = ["flake8 (>=4.0.0,<4.1.0)"]
-mccabe = ["mccabe (>=0.6.0,<0.7.0)"]
-pycodestyle = ["pycodestyle (>=2.8.0,<2.9.0)"]
-pydocstyle = ["pydocstyle (>=2.0.0)"]
-pyflakes = ["pyflakes (>=2.4.0,<2.5.0)"]
-pylint = ["pylint (>=2.5.0)"]
-rope = ["rope (>0.10.5)"]
-test = ["pylint (>=2.5.0)", "pytest", "pytest-cov", "coverage", "numpy (<1.23)", "pandas", "matplotlib", "pyqt5", "flaky"]
+yapf = ["whatthepatch (>=1.0.2,<2.0.0)", "yapf"]
 websockets = ["websockets (>=10.3)"]
-yapf = ["yapf", "whatthepatch (>=1.0.2,<2.0.0)"]
+test = ["flaky", "pyqt5", "matplotlib", "pandas", "numpy (<1.23)", "coverage", "pytest-cov", "pytest", "pylint (>=2.5.0)"]
+rope = ["rope (>0.10.5)"]
+pylint = ["pylint (>=2.5.0)"]
+pyflakes = ["pyflakes (>=2.4.0,<2.5.0)"]
+pydocstyle = ["pydocstyle (>=2.0.0)"]
+pycodestyle = ["pycodestyle (>=2.8.0,<2.9.0)"]
+mccabe = ["mccabe (>=0.6.0,<0.7.0)"]
+flake8 = ["flake8 (>=4.0.0,<4.1.0)"]
+autopep8 = ["autopep8 (>=1.6.0,<1.7.0)"]
+all = ["whatthepatch", "yapf", "rope (>=0.10.5)", "pylint (>=2.5.0)", "pyflakes (>=2.4.0,<2.5.0)", "pydocstyle (>=2.0.0)", "pycodestyle (>=2.8.0,<2.9.0)", "mccabe (>=0.6.0,<0.7.0)", "flake8 (>=4.0.0,<4.1.0)", "autopep8 (>=1.6.0,<1.7.0)"]
 
 [[package]]
 name = "pytoolconfig"
@@ -469,7 +532,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8.0,<3.9"
-content-hash = "3129d438b61a31690692adaa3f3fa3c0d35f87d428b01a9afb75a13446b25ca3"
+content-hash = "fdf5fa87d1427505748df988cfbc1373c51e38f35e9bcb947361fe5fad871940"
 
 [metadata.files]
 aiohttp = []
@@ -481,18 +544,24 @@ charset-normalizer = []
 click = []
 colorama = []
 debugpy = []
+et-xmlfile = []
 flask = []
 frozenlist = []
+helpers = []
 idna = []
 importlib-metadata = []
 itsdangerous = []
 jedi = []
 jinja2 = []
+lml = []
 markupsafe = []
 multidict = []
+openpyxl = []
 packaging = []
 parso = []
 pluggy = []
+pyexcel-io = []
+pyexcel-xlsx = []
 pyflakes = []
 pyparsing = []
 python-lsp-jsonrpc = []
